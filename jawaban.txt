@@ -1,0 +1,22 @@
+1. create database myshop;
+2. use myshop;
+ create table users(id int AUTO_INCREMENT PRIMARY KEY, name varchar(255), email varchar(255),password varchar(255));
+ create table categories(id int AUTO_INCREMENT PRIMARY KEY, name varchar(255));
+ create table items(id int AUTO_INCREMENT PRIMARY KEY, name varchar(255), description varchar(255), price int, stock int, category_id int, FOREIGN KEY(category_id) REFERENCES categories(id));
+3. insert into users values ('', 'John Doe', 'john@doe.com', 'john123');
+ insert into users values ('', 'Jane Doe', 'jane@doe.com', 'jenita123');
+ insert into categories values ('', 'gadget');
+ insert into categories values ('', 'cloth');
+ insert into categories values ('', 'men');
+ insert into categories values ('', 'women');
+ insert into categories values ('', 'branded');
+ insert into items values('', 'Sumsang b50', 'hape keren dari merk sumsang', '4000000', '100', '1');
+ insert into items values('', 'Uniklooh', 'baju keren dari brand ternama', '500000', '50', '2');
+ insert into items values('', 'IMHO Watch', 'jam tangan anak yang jujur banget', '2000000', '10', '1');
+4. 
+a. select id, name, email from users;
+b. select * from items where price>=1000000;
+ select * from items where name like '%watch%';
+c. alter table categories change name kategori varchar(255) ;
+ select items.name, items.description, items.price, items.stock, items.category_id, categories.kategori from items, categories where items.category_id = categories.id;
+5. update items set price = 2500000 where id = 1;  
